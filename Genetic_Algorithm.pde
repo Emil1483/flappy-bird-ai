@@ -4,7 +4,7 @@ void next_generation() {
   for (int i = 0; i < TOTAL; i++) {
     Network brain_temp =  new Network(layer_sizes); 
     brain_temp.copy_brain(saved_birds.get(pick_one_brain()).brain);
-    brain_temp.mutate(0.1);
+    brain_temp.mutate(0.01);
     birds.add(new Bird(brain_temp));
     
   }

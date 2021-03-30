@@ -95,8 +95,5 @@ class Bird {
     fill(255, 100);
     stroke(255);
     rect(pos.x - size/2, pos.y - size/2, size, size);
-    fill(0);
-    textSize(25);
-    text(round(score), pos.x - size/2, pos.y + size/2);
   }
 }

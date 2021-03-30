@@ -1,5 +1,6 @@
-int TOTAL = 350;
+int TOTAL = 250;
 int[] layer_sizes = {5, 4, 2};
+int maxSpeed = 100;
 
 ArrayList<Bird> birds = new ArrayList<Bird>();
 ArrayList<Bird> saved_birds = new ArrayList<Bird>();
@@ -16,7 +17,6 @@ void setup() {
 int speed = 1;
 int gen = 1;
 void draw() {
-  speed = mouseX;
   background(0);
   
   for (int k = 0; k < speed; k++) {
@@ -48,16 +48,22 @@ void draw() {
   for (Pipe p: pipes) {
     p.show();
   }
+  showSpeed();
+}
+
+void showSpeed() {
+  float h = 50;
+  float w = 150;
+  noStroke();
+  fill(0, 144);
+  rect(width - w, height - h, w, h);
+  
+  fill(255);
+  textSize(h);
+  text("x" + speed, width - w, height);
 }
 
 void mousePressed() {
-  /*
-  for (int i = birds.size() - 1; i >= 0; i--) {
-    saved_birds.add(new Bird());
-    saved_birds.get(saved_birds.size() - 1).copy_bird(birds.get(i));
-    birds.remove(i);
-  }
-  */
-  
-  birds.get(0).brain.saveJason("data/best_bird_3.JSON");
+  speed *= 10;
+  if (speed > maxSpeed) speed = 1;
 }

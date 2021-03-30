@@ -1,5 +1,5 @@
 class Pipe {
-  float distBetweenEnds = 300;
+  float distBetweenEnds = 350;
   float speed = 5;
   float w = 150;
   float spacing = 400;
